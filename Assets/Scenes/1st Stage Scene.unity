@@ -266,8 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a4d59ab7e19b44ebae5c5d9817baee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 400
-  sensY: 400
+  sensX: 2
+  sensY: 2
   orientation: {fileID: 1920472271}
 --- !u!1 &616050780
 GameObject:
@@ -546,8 +546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   groundDrag: 2
-  jumpForce: 12
-  jumpCooldown: 0.25
+  jumpForce: 5
+  jumpCooldown: 0.85
   airMultiplier: 0.4
   jumpKey: 32
   playerHeight: 2
@@ -555,8 +555,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   orientation: {fileID: 1920472271}
---- !u!65 &1124115721
-BoxCollider:
+--- !u!136 &1124115722
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -565,9 +565,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 0.5073509}
-  m_Center: {x: 0, y: 1, z: -0.048480988}
+  m_Radius: 0.27942753
+  m_Height: 1.9481467
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9473997, z: -0.04391384}
 --- !u!4 &1920472271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2080855298969743320, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
