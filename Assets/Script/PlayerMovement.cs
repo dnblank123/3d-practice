@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update() 
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0f + 0f, IsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 1f + 0.2f, IsGround);
 
         MyInput();
 

@@ -303,7 +303,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &668290182
 MonoBehaviour:
@@ -709,8 +709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  groundDrag: 5
-  playerHeight: 2
+  groundDrag: 3
+  playerHeight: 1
   IsGround:
     serializedVersion: 2
     m_Bits: 256
