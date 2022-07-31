@@ -36,10 +36,13 @@ public class PlayerMovement : MonoBehaviour
         ResetJump();
     }
     private void Update() 
+    {        
+        //Debug.Log(grounded);
+    }
+    private void FixedUpdate() 
     {
         grounded = Physics.CheckSphere(transform.position, playerHeight * 0.5f + 0.2f, IsGround);
-        //Debug.Log(grounded);
-
+        MovePlayer();
         MyInput();
         SpeedControl();
 
@@ -51,12 +54,6 @@ public class PlayerMovement : MonoBehaviour
 
             rb.drag = 0;
         } 
-            
-        
-    }
-    private void FixedUpdate() 
-    {
-        MovePlayer();
     } 
     private void MyInput() 
     {
@@ -80,13 +77,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         
         //on ground
-        if(grounded){
+        if(grounded)
 
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
-        } else if(!grounded) {
+        else if(!grounded) 
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-        }
+        
         
     }
     private void SpeedControl()
@@ -113,6 +110,15 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+    private void OnCollisionEnter(Collision other) 
+    {
+      if(other.gameObject.tag == "Ship")
+      {
+            ResetJump();
+      }
+
+
     }
     
 
