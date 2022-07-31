@@ -35,12 +35,10 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         ResetJump();
     }
-    private void Update() 
-    {        
-        //Debug.Log(grounded);
-    }
+
     private void FixedUpdate() 
     {
+        //Debug.Log(grounded);
         grounded = Physics.CheckSphere(transform.position, playerHeight * 0.5f + 0.2f, IsGround);
         MovePlayer();
         MyInput();
@@ -99,12 +97,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-
     }
 
     private void ResetJump()
@@ -117,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
       {
             ResetJump();
       }
-
 
     }
     
