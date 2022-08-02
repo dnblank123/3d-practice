@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
-    public Transform player;
+
 
     Vector3 moveDirection;
 
