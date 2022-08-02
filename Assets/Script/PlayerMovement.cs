@@ -29,15 +29,32 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+    //animation
+    private Animator animator;
+    int isRunHash;
+    int isRunBackHash;
+
+    int isRunLeftHash;
+    int isRunRightHash;
+
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         ResetJump();
+
+        //animation
+        animator = GetComponent<Animator>();
+        isRunHash = Animator.StringToHash("isRun");
+        isRunBackHash = Animator.StringToHash("isRunBack");
+        isRunLeftHash = Animator.StringToHash("isRunLeft");
+        isRunRightHash = Animator.StringToHash("isRunRight");
+
     }
 
-    private void FixedUpdate() 
+    private void Update() 
     {
         //Debug.Log(grounded);
         grounded = Physics.CheckSphere(transform.position, playerHeight * 0.5f + 0.2f, IsGround);
@@ -56,8 +73,66 @@ public class PlayerMovement : MonoBehaviour
     } 
     private void MyInput() 
     {
+        
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        bool isRun = animator.GetBool(isRunHash);
+        bool isRunBack = animator.GetBool(isRunBackHash);
+        bool isRunLeft = animator.GetBool(isRunLeftHash);
+        bool isRunRight = animator.GetBool(isRunRightHash);
+
+
+        bool ForwardRun = Input.GetKey("w");
+        bool BackRun = Input.GetKey("s");
+        bool LeftRun = Input.GetKey("a");
+        bool RightRun = Input.GetKey("d");        
+
+        //forward 
+        if(!isRun && ForwardRun)
+        {
+            animator.SetBool("isRun", true);
+        }
+        //back to idle
+        if(isRun && !ForwardRun)
+        {
+            animator.SetBool("isRun", false);
+
+        }
+        //back
+        if(!isRunBack && BackRun)
+        {
+            animator.SetBool("isRunBack", true);
+
+        }
+        if(isRunBack && !BackRun)
+        {
+            animator.SetBool("isRunBack", false);
+
+        }
+        //left
+        if(!isRunLeft && LeftRun)
+        {
+            animator.SetBool("isRunLeft", true);
+        }
+
+        if(isRunLeft && !LeftRun)
+        {
+            animator.SetBool("isRunLeft", false);
+
+        }
+        // right
+        if(!isRunRight && RightRun)
+        {
+            animator.SetBool("isRunRight", true);
+
+        }
+        if(isRunRight && !RightRun)
+        {
+            animator.SetBool("isRunRight", false);
+
+        }
+
 
         //when to jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
@@ -67,13 +142,18 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
-
+            
         }
     }
     private void MovePlayer()
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        if(moveDirection.x == horizontalInput)
+        {
+            
+        }
         
         //on ground
         if(grounded)
@@ -99,8 +179,8 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        
     }
 
     private void ResetJump()
