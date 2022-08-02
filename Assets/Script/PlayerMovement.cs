@@ -29,14 +29,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
-    //animation
-    private Animator animator;
-    int isRunHash;
-    int isRunBackHash;
-
-    int isRunLeftHash;
-    int isRunRightHash;
-
 
 
     private void Start()
@@ -44,17 +36,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         ResetJump();
-
-        //animation
-        animator = GetComponent<Animator>();
-        isRunHash = Animator.StringToHash("isRun");
-        isRunBackHash = Animator.StringToHash("isRunBack");
-        isRunLeftHash = Animator.StringToHash("isRunLeft");
-        isRunRightHash = Animator.StringToHash("isRunRight");
-
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
         //Debug.Log(grounded);
         grounded = Physics.CheckSphere(transform.position, playerHeight * 0.5f + 0.2f, IsGround);
@@ -76,64 +60,6 @@ public class PlayerMovement : MonoBehaviour
         
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-
-        bool isRun = animator.GetBool(isRunHash);
-        bool isRunBack = animator.GetBool(isRunBackHash);
-        bool isRunLeft = animator.GetBool(isRunLeftHash);
-        bool isRunRight = animator.GetBool(isRunRightHash);
-
-
-        bool ForwardRun = Input.GetKey("w");
-        bool BackRun = Input.GetKey("s");
-        bool LeftRun = Input.GetKey("a");
-        bool RightRun = Input.GetKey("d");        
-
-        //forward 
-        if(!isRun && ForwardRun)
-        {
-            animator.SetBool("isRun", true);
-        }
-        //back to idle
-        if(isRun && !ForwardRun)
-        {
-            animator.SetBool("isRun", false);
-
-        }
-        //back
-        if(!isRunBack && BackRun)
-        {
-            animator.SetBool("isRunBack", true);
-
-        }
-        if(isRunBack && !BackRun)
-        {
-            animator.SetBool("isRunBack", false);
-
-        }
-        //left
-        if(!isRunLeft && LeftRun)
-        {
-            animator.SetBool("isRunLeft", true);
-        }
-
-        if(isRunLeft && !LeftRun)
-        {
-            animator.SetBool("isRunLeft", false);
-
-        }
-        // right
-        if(!isRunRight && RightRun)
-        {
-            animator.SetBool("isRunRight", true);
-
-        }
-        if(isRunRight && !RightRun)
-        {
-            animator.SetBool("isRunRight", false);
-
-        }
-
-
         //when to jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {

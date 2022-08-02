@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: de13a7420582ded45a8d7d3f96889aca
+guid: 3ab175cea4c2ad645973ae85b515680d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -14,7 +14,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -44,7 +44,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
+    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -505,13 +505,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: HumanMale_Character(Clone)
+    - name: HumanMale_Charactexdr(Clone)
       parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Armature
-      parentName: HumanMale_Character(Clone)
+      parentName: HumanMale_Charactexdr(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -548,7 +548,7 @@ ModelImporter:
     - name: Hip_R
       parentName: Root_M
       position: {x: 0.07435892, y: 0.0038796095, z: -0.109030776}
-      rotation: {x: 0.011062292, y: 0.9991593, z: -0.036105834, w: -0.015965968}
+      rotation: {x: 0.011062291, y: 0.9991593, z: -0.03610583, w: -0.015965968}
       scale: {x: 1.0000018, y: 1.000003, z: 1.0000026}
     - name: Knee_R
       parentName: Hip_R
@@ -718,7 +718,7 @@ ModelImporter:
     - name: MiddleFinger1_L
       parentName: Wrist_L
       position: {x: 0.12055206, y: 7.886321e-11, z: -5.188653e-11}
-      rotation: {x: 0.013565477, y: -0.0727903, z: 0.02149239, w: 0.99702346}
+      rotation: {x: 0.013565475, y: -0.0727903, z: 0.021492388, w: 0.99702346}
       scale: {x: 0.99998885, y: 1.0000088, z: 1.0000074}
     - name: MiddleFinger2_L
       parentName: MiddleFinger1_L
@@ -778,7 +778,7 @@ ModelImporter:
     - name: ThumbFinger1_L
       parentName: Wrist_L
       position: {x: 0.016826613, y: -0.04184054, z: 0.005270861}
-      rotation: {x: 0.45906913, y: -0.10764436, z: 0.34886357, w: -0.80991507}
+      rotation: {x: 0.45906916, y: -0.107644364, z: 0.3488636, w: -0.8099151}
       scale: {x: 0.9999922, y: 1.0000044, z: 1.0000037}
     - name: ThumbFinger2_L
       parentName: ThumbFinger1_L
@@ -828,7 +828,7 @@ ModelImporter:
     - name: IndexFinger3_R
       parentName: IndexFinger2_R
       position: {x: -0.04228722, y: -1.4210854e-16, z: -1.7053025e-15}
-      rotation: {x: -0.011705427, y: -0.04102175, z: 0.0059075556, w: 0.9990723}
+      rotation: {x: -0.0117054265, y: -0.04102175, z: 0.0059075546, w: 0.9990723}
       scale: {x: 1.0000123, y: 1.0000014, z: 0.9999935}
     - name: IndexFinger4_R
       parentName: IndexFinger3_R
@@ -863,7 +863,7 @@ ModelImporter:
     - name: PinkyFinger1_R
       parentName: Wrist_R
       position: {x: -0.11517641, y: -0.059285354, z: -0.009676369}
-      rotation: {x: 0.10385333, y: -0.06316663, z: 0.03233091, w: 0.99205804}
+      rotation: {x: 0.10385334, y: -0.06316663, z: 0.032330915, w: 0.99205804}
       scale: {x: 1.000006, y: 0.9999973, z: 0.9999979}
     - name: PinkyFinger2_R
       parentName: PinkyFinger1_R
@@ -921,7 +921,7 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Mesh
-      parentName: HumanMale_Character(Clone)
+      parentName: HumanMale_Charactexdr(Clone)
       position: {x: -0, y: 0, z: -0.09000076}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1015,6 +1015,11 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: hair
+      parentName: Hair
+      position: {x: 0, y: 0, z: 0.085}
+      rotation: {x: 0.00000008145852, y: -4.6384235e-10, z: 1.1641532e-10, w: 1}
+      scale: {x: 1, y: 1, z: 0.9999999}
     - name: Moustaches
       parentName: Customization
       position: {x: -0, y: 0, z: 0}
@@ -1042,8 +1047,8 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
