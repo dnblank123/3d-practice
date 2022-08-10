@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 471194870}
   - component: {fileID: 471194872}
   - component: {fileID: 471194871}
+  - component: {fileID: 471194873}
   m_Layer: 5
   m_Name: Bottom
   m_TagString: Untagged
@@ -285,6 +286,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471194869}
   m_CullTransparentMesh: 1
+--- !u!114 &471194873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471194869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca80e860956aa35459f7e4288107bd22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barText: {fileID: 602642426}
+  personNameText: {fileID: 1453705564}
+  currentScene: {fileID: 11400000, guid: 467837c1b3ebeb04cafe22f5d169437e, type: 2}
 --- !u!1 &602642424
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,8 +336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15, y: -30}
-  m_SizeDelta: {x: -90, y: -120}
+  m_AnchoredPosition: {x: 0, y: -30}
+  m_SizeDelta: {x: -120, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602642426
 MonoBehaviour:
