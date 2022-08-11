@@ -15,12 +15,28 @@ public class BottomController : MonoBehaviour
     {
         PLAYING, COMPLETED
     }
-    // Start is called before the first frame update
-    void Start()
+
+    public void PlayScene(StoryScene scene)
+    {
+        currentScene = scene;
+        sentenceIndex = -1;
+        PlayNextSentence();
+    }
+    public void PlayNextSentence()
     {
         StartCoroutine(TypeText(currentScene.sentences[++sentenceIndex].text));
+        personNameText.text = currentScene.sentences[sentenceIndex].speaker.speakerName;
 
     }
+    public bool isCompleted()
+    {
+        return state == State.COMPLETED;
+    }
+    public bool IsLastSentence()
+    {
+        return sentenceIndex + 1 == currentScene.sentences.Count;
+    }
+
 
     private IEnumerator TypeText(string text)
     {
