@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public Dropdown resoDropdown;
-    //public TMPro.TMP_Dropdown resolutionDropdown;
+    //public Dropdown resoDropdown;
+    public TMPro.TMP_Dropdown resoDropdown;
     Resolution[] resolutions;
 
     private void Start() 
@@ -20,7 +20,7 @@ public class SettingsMenu : MonoBehaviour
         int currentResolutionIndex = 0;
         for(int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width+ " x " + resolutions[i].height+ " @ " + resolutions[i].refreshRate + "hz";
+            string option = resolutions[i].width+ " x " + resolutions[i].height;
             options.Add(option);
 
             if(resolutions[i].width == Screen.width &&
@@ -37,6 +37,12 @@ public class SettingsMenu : MonoBehaviour
 
     }
 
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+    }
 
     public void SetVolume(float Volume)
     {
