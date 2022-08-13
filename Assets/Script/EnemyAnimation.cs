@@ -25,7 +25,7 @@ public class EnemyAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         PlayerAnimate();
 
