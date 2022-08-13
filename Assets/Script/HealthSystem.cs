@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
+
+    public EnemyAnimation EnemyAnim;
 
 
     void Start()
