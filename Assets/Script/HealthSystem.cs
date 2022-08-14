@@ -7,12 +7,14 @@ public class HealthSystem : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
 
-    public EnemyAnimation EnemyAnim;
+    public Animator Anim;
+
 
 
     void Start()
     {
         currentHealth = maxHealth;
+
     }
 
 
@@ -22,15 +24,15 @@ public class HealthSystem : MonoBehaviour
     }
     private void TakeDamage(int amount)
     {
+
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            //no animation atm
-            Destroy(gameObject);
-
+            Anim.SetBool("isDead", true);
         }
 
     }
+
     private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.tag == "Sword")

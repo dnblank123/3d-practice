@@ -16,7 +16,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         //float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         //float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;

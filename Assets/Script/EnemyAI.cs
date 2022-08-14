@@ -31,6 +31,8 @@ public class EnemyAI : MonoBehaviour
     int isRunLeftHash;
     int isRunRightHash;
     int isAttackHash;
+    int isDeadHash;
+    public HealthSystem EnemyHealth;
 
     private void Awake()
     {
@@ -45,6 +47,7 @@ public class EnemyAI : MonoBehaviour
         isRunLeftHash = Animator.StringToHash("isRunLeft");
         isRunRightHash = Animator.StringToHash("isRunRight");
         isAttackHash = Animator.StringToHash("isAttack");
+        isDeadHash = Animator.StringToHash("isDead");
     }
 
     private void Update()
@@ -52,10 +55,11 @@ public class EnemyAI : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
+        bool isDead = animator.GetBool("isDead");
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
 
     }
 
@@ -119,6 +123,15 @@ public class EnemyAI : MonoBehaviour
     private void ResetAttack()
     {     
         alreadyAttacked = false;  
+    }
+    private void HealthZeroAnimation()
+    {
+        if(EnemyHealth.currentHealth <=0)
+        {
+            animator.SetBool("isDead", true);
+            animator.SetBool("isAttack", false);
+        }
+        
     }
 
 

@@ -8,7 +8,7 @@ public class PlayerSaveData : MonoBehaviour
     public HealthSystem HealthSys;
     private PlayerData MyData = new PlayerData();
 
-    void Update()
+    void LateUpdate()
     {
         var transform1 = transform;
         MyData.PlayerPosition = transform1.position;

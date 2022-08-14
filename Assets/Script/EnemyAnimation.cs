@@ -12,6 +12,8 @@ public class EnemyAnimation : MonoBehaviour
     int isRunRightHash;
     int isJumpHash;
     int isAttackHash;
+    //int isDeadHash;
+    //public HealthSystem HealthSys;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,6 +23,8 @@ public class EnemyAnimation : MonoBehaviour
         isRunRightHash = Animator.StringToHash("isRunRight");
         isJumpHash = Animator.StringToHash("isJump");
         isAttackHash = Animator.StringToHash("isAttack");
+        //isDeadHash = Animator.StringToHash("isDead");
+
 
     }
 
@@ -39,6 +43,8 @@ public class EnemyAnimation : MonoBehaviour
         bool isRunRight = animator.GetBool(isRunRightHash);
         bool isJump = animator.GetBool(isJumpHash);
         bool isAttack = animator.GetBool(isAttackHash);
+       // bool isDead = animator.GetBool(isDeadHash);
+
 
 
         bool ForwardRun = Input.GetKey("w");
@@ -111,7 +117,11 @@ public class EnemyAnimation : MonoBehaviour
         if(isAttack && !Attack)
         {
             animator.SetBool("isAttack", false);
-
         }
+        // if((HealthSys.currentHealth == 0) && isDead)
+        // {
+        //     animator.SetBool("isDead", true);
+        // }
+
     }
 }
