@@ -28,7 +28,7 @@ public class HealthSystem : MonoBehaviour
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            Anim.SetBool("isDead", true);
+            
         }
 
     }

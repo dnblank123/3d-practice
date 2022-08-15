@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     int isAttackHash;
     int isDeadHash;
     public HealthSystem EnemyHealth;
+    public GameObject EnemyObj;
 
     private void Awake()
     {
@@ -48,18 +49,21 @@ public class EnemyAI : MonoBehaviour
         isRunRightHash = Animator.StringToHash("isRunRight");
         isAttackHash = Animator.StringToHash("isAttack");
         isDeadHash = Animator.StringToHash("isDead");
+        
     }
 
     private void Update()
     {
+        bool isDead = animator.GetBool("isDead");
+        if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        bool isDead = animator.GetBool("isDead");
+
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
-        if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
+
 
     }
 
@@ -128,10 +132,18 @@ public class EnemyAI : MonoBehaviour
     {
         if(EnemyHealth.currentHealth <=0)
         {
-            animator.SetBool("isDead", true);
-            animator.SetBool("isAttack", false);
+            animator.SetTrigger("isDead");
+            EnemyObj.GetComponent<EnemyAI>().enabled = false;
+            EnemyObj.GetComponent<HealthSystem>().enabled = false;
+            Invoke(nameof(DisableOnDead), 4f);
+
         }
         
+    }
+    protected void DisableOnDead()
+    {
+        EnemyObj.GetComponent<Collider>().enabled = false;
+        EnemyObj.GetComponent<NavMeshAgent>().enabled = false;
     }
 
 
