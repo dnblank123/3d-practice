@@ -83,6 +83,7 @@ public class EnemyAI : MonoBehaviour
     private void SearchWalkPoint()
     {
         //Calculate random point in range
+        
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -90,6 +91,7 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+            animator.SetBool("isRun", true);
     }
 
     private void ChasePlayer()
