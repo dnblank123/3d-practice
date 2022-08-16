@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -39,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("HumanMale").transform;
         agent = GetComponent<NavMeshAgent>();
+
     }
     private void Start() 
     {
@@ -52,7 +51,7 @@ public class EnemyAI : MonoBehaviour
         
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         bool isDead = animator.GetBool("isDead");
         if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
@@ -91,12 +90,14 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+            Invoke(nameof(FixStuck), 10f);
             animator.SetBool("isRun", true);
     }
 
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        walkPointSet = false;
         animator.SetBool("isRun", true);
 
     }
@@ -146,6 +147,10 @@ public class EnemyAI : MonoBehaviour
     {
         EnemyObj.GetComponent<Collider>().enabled = false;
         EnemyObj.GetComponent<NavMeshAgent>().enabled = false;
+    }
+    public void FixStuck()
+    {
+        walkPointSet = false;
     }
 
 
