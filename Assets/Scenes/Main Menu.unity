@@ -2012,7 +2012,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 50268e400410a1c41a745629e45afe2d, type: 2}
+  volSlider: {fileID: 26268408}
   resoDropdown: {fileID: 1840680061}
+  fullScreenToggle: {fileID: 1784906732}
+  qualityDropDown: {fileID: 1265631671}
 --- !u!1 &786571492
 GameObject:
   m_ObjectHideFlags: 0
