@@ -22,11 +22,18 @@ public class WordDisplay : MonoBehaviour {
 	public void RemoveWord ()
 	{
 		Destroy(gameObject);
+		ScoreTextScript.textAmount += 1;
 	}
 
 	private void Update()
 	{
+
 		transform.Translate(0f, -fallSpeed * Time.deltaTime, 0f);
+
+		if (ScoreTextScript.textAmount == 15)
+        {
+			Debug.Log("complete");
+        }
 	}
 
 }
