@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   sentences:
-  - text: Magellan set foot on the land of spices, expecting something
+  - text: test
     speaker: {fileID: 11400000, guid: 5be9f4d0f7845d24291acc91116a8bce, type: 2}
   background: {fileID: 21300000, guid: 92dc1543edc9b0a449cd0bacaf80b2ca, type: 3}
-  nextScene: {fileID: 11400000}
+  nextScene: {fileID: 11400000, guid: 52734c17633c07b4f82b44a4a9ce33cd, type: 2}

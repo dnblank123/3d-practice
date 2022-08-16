@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   sentences:
-  - text: In the days of old, adventures such as magellan, a vicious spaniard explore
-      seeking to be the one who discovers the world and introduce his ideologies
-      and righteous.
+  - text: test
     speaker: {fileID: 11400000, guid: 5be9f4d0f7845d24291acc91116a8bce, type: 2}
   background: {fileID: 21300000, guid: 279b92065c4c98a47ad2cdd0ba73a0d7, type: 3}
   nextScene: {fileID: 11400000, guid: 953e841158881284283b5d1f39ec581f, type: 2}
