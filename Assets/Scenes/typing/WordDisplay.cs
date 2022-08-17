@@ -7,7 +7,15 @@ public class WordDisplay : MonoBehaviour {
 
 	public Text text;
 	public float fallSpeed = 2f;
+	
 
+	private void Start() 
+	{
+		gameObject.AddComponent<BoxCollider>().isTrigger = true;
+		gameObject.tag = "Killzone";
+		
+
+	}
 	public void SetWord (string word)
 	{
 		text.text = word;
@@ -23,6 +31,10 @@ public class WordDisplay : MonoBehaviour {
 	{
 		Destroy(gameObject);
 		ScoreTextScript.textAmount += 1;
+	}
+	private void OnTriggerEnter(Collider other) 
+	{
+	
 	}
 
 	private void Update()

@@ -7,6 +7,7 @@ TagManager:
   - Ship
   - Sword
   - Human
+  - Killzone
   layers:
   - Default
   - TransparentFX

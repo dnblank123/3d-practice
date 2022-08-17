@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
 
-    public Animator Anim;
+    //public Animator Anim;
 
 
 
@@ -41,7 +41,12 @@ public class HealthSystem : MonoBehaviour
             TakeDamage(5);
             
         }
+        if(other.gameObject.tag == "Killzone")
+        {
+            TakeDamage(5);
+        }
         
 
     }
+
 }
