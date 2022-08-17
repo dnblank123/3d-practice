@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     public static AudioClip walksandSound, jumpSound, attackSound, war;
     static AudioSource audioSource;
 
+    bool isPlaying;
+
 
     private void Start()
     {
@@ -15,8 +17,25 @@ public class SoundManager : MonoBehaviour
         attackSound = Resources.Load<AudioClip>("attackgrunt");
         war = Resources.Load<AudioClip>("war");
         audioSource = GetComponent<AudioSource>();
-        Noise();
+        audioSource.clip = war;
+        audioSource.Play();
+
     }
+    // private void Update() {
+
+    // if(Input.GetKeyDown(KeyCode.Escape))
+    // {
+    //     if(isPlaying)
+    //     {
+    //         Noise();
+    //     } else {
+    //         NoiseNo();
+    //     }
+
+    // }
+
+    // }
+
     public static void PlaySound(string clip)
     {
         switch(clip)
@@ -39,9 +58,16 @@ public class SoundManager : MonoBehaviour
             break;
         }
     }
-    public void Noise()
+    public static void Noise()
     {
         audioSource.clip = war;
         audioSource.Play();
+        //isPlaying = false;
+
+    }
+    public static void NoiseNo()
+    {
+        audioSource.Pause();
+        //isPlaying = true;
     }
 }

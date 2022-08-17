@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
     
     public void PauseGame()
     {
+        SoundManager.NoiseNo();
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -40,7 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-
+        SoundManager.Noise();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
