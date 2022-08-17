@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -30,8 +31,14 @@ public class EnemyAI : MonoBehaviour
     int isRunRightHash;
     int isAttackHash;
     int isDeadHash;
+    int CurrentWaypointIndex;
+    
     public HealthSystem EnemyHealth;
     public GameObject EnemyObj;
+    public GameObject CutsceneCamera;
+    public GameObject EnemyCanvas;
+    public GameObject LapuCanvas;
+    
 
     private void Awake()
     {
@@ -48,13 +55,15 @@ public class EnemyAI : MonoBehaviour
         isRunRightHash = Animator.StringToHash("isRunRight");
         isAttackHash = Animator.StringToHash("isAttack");
         isDeadHash = Animator.StringToHash("isDead");
+        CurrentWaypointIndex = 0;
         
     }
 
     private void LateUpdate()
     {
         bool isDead = animator.GetBool("isDead");
-        if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
+        if (EnemyHealth.currentHealth == 5) RunToTheCutscene();
+        //if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -141,7 +150,18 @@ public class EnemyAI : MonoBehaviour
             Invoke(nameof(DisableOnDead), 4f);
 
         }
+
         
+    }
+    private void RunToTheCutscene()
+    {
+        if(EnemyHealth.currentHealth <= 5)
+        {
+            CutsceneCamera.SetActive(true);
+            Invoke(nameof(NextSceneInvoke), 10f);
+            EnemyCanvas.SetActive(false);
+            LapuCanvas.SetActive(false);
+        }
     }
     protected void DisableOnDead()
     {
@@ -151,6 +171,10 @@ public class EnemyAI : MonoBehaviour
     public void FixStuck()
     {
         walkPointSet = false;
+    }
+    private void NextSceneInvoke()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 

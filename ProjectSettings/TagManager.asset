@@ -8,6 +8,8 @@ TagManager:
   - Sword
   - Human
   - Killzone
+  - HumanMaleAlly
+  - SpaniardsEnemy
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - PropsBox&Barrel
   - InvisibleWall
   - Obstacles
-  - 
-  - 
+  - Enemy
+  - Ally
   - 
   - 
   - 

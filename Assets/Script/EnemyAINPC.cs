@@ -30,12 +30,12 @@ public class EnemyAINPC : MonoBehaviour
     int isRunRightHash;
     int isAttackHash;
     int isDeadHash;
-    public HealthSystem EnemyHealth;
-    public GameObject EnemyObj;
+    public HealthSystem Health;
+    public GameObject PlayerObj;
 
     private void Awake()
     {
-        player = GameObject.Find("HumanMaleAlly").transform;
+        player = GameObject.FindGameObjectWithTag("HumanMaleAlly").transform;
         agent = GetComponent<NavMeshAgent>();
 
     }
@@ -51,10 +51,10 @@ public class EnemyAINPC : MonoBehaviour
         
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         bool isDead = animator.GetBool("isDead");
-        if (EnemyHealth.currentHealth <= 0 && !isDead) HealthZeroAnimation();
+        if (Health.currentHealth <= 0 && !isDead) HealthZeroAnimation();
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -133,11 +133,11 @@ public class EnemyAINPC : MonoBehaviour
     }
     private void HealthZeroAnimation()
     {
-        if(EnemyHealth.currentHealth <=0)
+        if(Health.currentHealth <=0)
         {
             animator.SetTrigger("isDead");
-            EnemyObj.GetComponent<EnemyAI>().enabled = false;
-            EnemyObj.GetComponent<HealthSystem>().enabled = false;
+            PlayerObj.GetComponent<EnemyAINPC>().enabled = false;
+            PlayerObj.GetComponent<HealthSystem>().enabled = false;
             Invoke(nameof(DisableOnDead), 4f);
 
         }
@@ -145,8 +145,8 @@ public class EnemyAINPC : MonoBehaviour
     }
     protected void DisableOnDead()
     {
-        EnemyObj.GetComponent<Collider>().enabled = false;
-        EnemyObj.GetComponent<NavMeshAgent>().enabled = false;
+        PlayerObj.GetComponent<Collider>().enabled = false;
+        PlayerObj.GetComponent<NavMeshAgent>().enabled = false;
     }
     public void FixStuck()
     {
