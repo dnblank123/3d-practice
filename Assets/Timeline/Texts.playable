@@ -1444,8 +1444,8 @@ MonoBehaviour:
     m_Duration: 6.452244897959184
     m_TimeScale: 1
     m_ParentTrack: {fileID: 213808945912138417}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
+    m_EaseInDuration: 2
+    m_EaseOutDuration: 2
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
@@ -3087,8 +3087,8 @@ MonoBehaviour:
     m_Duration: 14.066666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: 6705608565933240490}
-    m_EaseInDuration: 1
-    m_EaseOutDuration: 1
+    m_EaseInDuration: 3
+    m_EaseOutDuration: 4
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
