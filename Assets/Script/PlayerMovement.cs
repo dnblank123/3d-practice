@@ -75,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        
+        
         if(moveDirection.x == horizontalInput)
         {
             
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if(grounded)
 
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
+            
         else if(!grounded) 
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         

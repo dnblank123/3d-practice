@@ -46,7 +46,7 @@ public class PlayerAnimation : MonoBehaviour
         bool LeftRun = Input.GetKey("a");
         bool RightRun = Input.GetKey("d");
         bool Jumped = Input.GetKey("space");
-        bool Attack = Input.GetMouseButton(0);
+        bool Attack = Input.GetMouseButtonDown(0);
 
 
         //forward 
