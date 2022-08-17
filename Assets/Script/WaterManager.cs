@@ -15,7 +15,7 @@ public class WaterManager : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3[] vertices = meshFilter.mesh.vertices;
         for (int i = 0; i < vertices.Length; i++)

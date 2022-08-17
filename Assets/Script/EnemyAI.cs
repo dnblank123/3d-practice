@@ -90,7 +90,7 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
-            Invoke(nameof(FixStuck), 10f);
+            Invoke(nameof(FixStuck), 5f);
             animator.SetBool("isRun", true);
     }
 

@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         offset += Time.deltaTime * speed;
     }
