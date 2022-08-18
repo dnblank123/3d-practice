@@ -7,10 +7,12 @@ public class ScoreTextScript : MonoBehaviour
 {
 
     Text text;
+    private int zeroholder = 0;
     public static int textAmount;
  
     void Start()
     {
+        textAmount = zeroholder;
         text = GetComponent<Text>();
     }
 
