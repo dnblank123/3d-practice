@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CongratulationScript : MonoBehaviour
+public class WordManagerDisableScript : MonoBehaviour
 {
-    public ScoreTextScript Score; 
     public GameObject WordManagerDisable;
+    public GameObject DefaultCanvas;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class CongratulationScript : MonoBehaviour
     {
         if(ScoreTextScript.textAmount == 10)
         {
+            DefaultCanvas.SetActive(false);
             WordManagerDisable.SetActive(false);
         }
     }
