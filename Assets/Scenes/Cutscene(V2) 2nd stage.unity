@@ -950,7 +950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: There was a young man named Jose Rizal.
+  m_text: There was a young man named Jose P. Rizal.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de05d14e3d938e9409ac83e71a5e305e, type: 2}
   m_sharedMaterial: {fileID: 1940531456556928124, guid: de05d14e3d938e9409ac83e71a5e305e, type: 2}
