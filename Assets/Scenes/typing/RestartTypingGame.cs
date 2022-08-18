@@ -9,6 +9,12 @@ public class RestartTypingGame : MonoBehaviour
     public GameObject resetCanvas;
     public GameObject WordManagerDisable;
     public GameObject DefaultCanvas;
+    
+    private void Start() 
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     private void Update() 
     {
