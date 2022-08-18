@@ -366,7 +366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The battle live on ! ! !
+  m_text: The battle lives on ! ! !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de05d14e3d938e9409ac83e71a5e305e, type: 2}
   m_sharedMaterial: {fileID: 1940531456556928124, guid: de05d14e3d938e9409ac83e71a5e305e, type: 2}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2214,6 +2214,8 @@ PlayableDirector:
     value: {fileID: 1636285309}
   - key: {fileID: -9210250845139674351, guid: a272f73b8a20bfe47ae397744151a412, type: 2}
     value: {fileID: 371105937}
+  - key: {fileID: -7429105012136399672, guid: a272f73b8a20bfe47ae397744151a412, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2062770037

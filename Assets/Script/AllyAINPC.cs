@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class AllyAINPC : MonoBehaviour
 {
@@ -35,12 +36,13 @@ public class AllyAINPC : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("SpaniardsEnemy").transform;
+        
         agent = GetComponent<NavMeshAgent>();
 
     }
     private void Start() 
     {
+        
         animator = GetComponent<Animator>();
         isRunHash = Animator.StringToHash("isRun");
         isRunBackHash = Animator.StringToHash("isRunBack");
@@ -53,6 +55,7 @@ public class AllyAINPC : MonoBehaviour
 
     private void Update()
     {
+        player = GameObject.FindWithTag("SpaniardsEnemy").transform;
         bool isDead = animator.GetBool("isDead");
         if (Health.currentHealth <= 0 && !isDead) HealthZeroAnimation();
         //Check for sight and attack range
@@ -101,6 +104,7 @@ public class AllyAINPC : MonoBehaviour
         animator.SetBool("isRun", true);
 
     }
+  
 
     private void AttackPlayer()
     {
@@ -109,10 +113,16 @@ public class AllyAINPC : MonoBehaviour
         agent.SetDestination(transform.position);
         animator.SetBool("isRun", false);
 
-        Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
- 
+        // Vector3 direction = (player.position - transform.position).normalized;
+        // Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        // transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        Vector3 playerPosition = new Vector3(player.transform.position.x,
+                                            transform.position.y,
+                                            player.transform.position.z);
+
+
+        transform.LookAt(playerPosition);
+
         if (!alreadyAttacked)
         {
             ///Attack code here

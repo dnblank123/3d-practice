@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class WordDisplay : MonoBehaviour {
 
 	public Text text;
-	public float fallSpeed = 2f;
+	public float fallSpeed = 1f;
 	
 
 	private void Start() 
@@ -42,10 +42,6 @@ public class WordDisplay : MonoBehaviour {
 
 		transform.Translate(0f, -fallSpeed * Time.deltaTime, 0f);
 
-		if (ScoreTextScript.textAmount == 15)
-        {
-			Debug.Log("complete");
-        }
 	}
 
 }
